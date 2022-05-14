@@ -11,6 +11,12 @@ sudo mkdir -p /local/github
 sudo mkdir /local/notesdata
 sudo mkdir /local/domino
 
+adduser notes
+
+
+chown notes:notes /local/notesdata
+chown notes/notes /local/domino
+
 cd /local/github
 git clone https://github.com/HCL-TECH-SOFTWARE/domino-container.git
 cd domino-container
