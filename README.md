@@ -5,12 +5,12 @@ This assumes a clean server, no users, no updates, totaly fresh install
 
 The script installs the domino-container repo from hcl,
 it installs a notes user and a limited user of your choice. 
-it assumes you have loged into the server as root and you are using
+it assumes you can ssh into the server as root and are using
 ssh keys to do so.
 
 It also installs ctop, a great tool for docker containers.
 
-It sets up the folder structure needed for a standard domino install.
+It sets up the folder structure needed for a standard domino-container install.
 
 /local/github/domino-container
 /local/notesdata
@@ -35,11 +35,11 @@ sftp
   https://github.com/HCL-TECH-SOFTWARE/domino-container
   
   starting with "./build.sh domino" from the folder /local/github/domino-container
-  domino when it is working in docker 
+  
   
   I will also be installing some other docker containers.
   After this all works and you should be able to reach http://host and get the domino splash screen, 
-  I will also setup portainer and Nginx Proxy Manager.
+  I will also setup portainer and Nginx Proxy Manager and a joomla website or two.
   
   good luck all.
   Eric
