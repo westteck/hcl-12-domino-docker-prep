@@ -76,8 +76,7 @@ cd ~
 
 # adduser $user
 # usermod -aG $user sudo notes docker
-# usermod -aG $nser notes
-# usermod -ag $user 
+# 
 # mkdir /home/$user/.ssh
 # chowm $user:$user /home/$user/.ssh
 # cp .ssh/authorized_keys /home/$user/.ssh/
