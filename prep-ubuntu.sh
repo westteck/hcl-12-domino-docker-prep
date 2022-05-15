@@ -53,6 +53,9 @@ mkdir -p /local/github
 mkdir /local/notesdata
 mkdir /local/domino
 mkdir -p /var/www/html # if you are setting up a webserver as well
+
+read -p "paused for a sec"
+
 adduser notes
 
 # change owner of domino local volumes
@@ -74,44 +77,32 @@ cd ~
 #
 # Users and ssh keys setup. assumes root has ssh key setup for ssh login.
 
-# adduser $user
-# usermod -aG $user sudo notes docker
-# 
-# mkdir /home/$user/.ssh
-# chowm $user:$user /home/$user/.ssh
-# cp .ssh/authorized_keys /home/$user/.ssh/
-# chown $user:$user /home/$user/.ssh/authorized_keys 
+adduser $user -G sudo notes docker $user
+
+mkdir -p /home/$user/.ssh
+
+chown $user:$user /home/$user/.ssh
+
+cp /root/.ssh/authorized_keys /home/$user/.ssh/
+
+chown $user:$user /home/$user/.ssh/authorized_keys 
+
 chmod 700 /home/$user/.ssh
+
 chmod 600 /home/$user/.ssh/authorized_keys
 
 ## setup ssh banner and restary ssh service
 
-echo 
-"
----------------------------------------------------------- 
-      All connections are monitored and recorded     
-Disconnect IMMEDIATELY if you are not an authorized user!
+cp /etc/issue.net /etc/issue.net.old
 
-                      _________-----_____
-           _____------           __      ----_
-    ___----             ___------              \
-       ----________        ----                 \
-                   -----__    |             _____)
-                        __-                /     \
-            _______-----    ___--          \    /)\
-      ------_______      ---____            \__/  /
-                   -----__    \ --    _          /\
-                          --__--__     \_____/   \_/\
-                                  ----|   /          |
-                                      |  |___________|
-                                      |  | ((_(_)| )_)
-                                      |  \_((_(_)|/(_)
-                                      \             (
-                                       \_____________)
+rm /etc/issue.net
 
-" > /etc/issue.net
+cp issue.net /etc/issue.net
+
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 
-echo 'Banner /etc/isue.net' >> /etc/ssh/sshd_config
+echo 'Banner /etc/issue.net' >> /etc/ssh/sshd_config
+
 systemctl restart ssh
-echo 'if yo are here, then all went well.'
+
+echo 'if you are here, then all went well.'
