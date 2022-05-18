@@ -23,6 +23,8 @@ wget https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megacmd_1.5.0-1.1_amd64.deb 
 
 sudo apt install /path/to/downloaded/package.deb -y
 
+# get -q exportedlink#key|/hclsoftware .
+
 # Install docker
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
