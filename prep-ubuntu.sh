@@ -14,9 +14,16 @@ read user
 # update - upgrade system to start
 apt update -y && apt upgrade -y
 
-# Install docker
-
 apt install wget ca-certificates curl gnupg lsb-release nano rkhunter -y
+
+# Install mega.nz commandline tools to quickly download domino install software
+mkdir megacmd
+
+wget https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megacmd_1.5.0-1.1_amd64.deb /megacmd/
+
+sudo apt install /path/to/downloaded/package.deb -y
+
+# Install docker
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
