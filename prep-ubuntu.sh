@@ -86,7 +86,7 @@ cd ~
 #
 # Users and ssh keys setup. assumes root has ssh key setup for ssh login.
 
-adduser $user -G sudo notes docker $user
+usermod -aG $user sudo notes docker $user
 
 mkdir -p /home/$user/.ssh
 
